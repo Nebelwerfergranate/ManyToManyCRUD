@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "DriverNotFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Driver with VATIN "@ViewData["vatin"]" not found..</h2>
+
+@Html.ActionLink("Back", "AddDriver", new {id = ViewData["id"]}, new {@class = "btn btn-default", role = "button"})
+@Html.ActionLink("To Cars List", "Index", null, new { @class = "btn btn-default", role = "button" })

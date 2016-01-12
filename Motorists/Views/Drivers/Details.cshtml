@@ -1,0 +1,76 @@
+﻿@using Motorists.Models
+@model Motorists.Models.Driver
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Driver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vatin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vatin)
+        </dd>
+            
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrivingExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrivingExperience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cars)
+        </dt>
+
+        <dd>
+            <ol>
+                @foreach (Car owner in Model.Cars)
+                {
+                    <li>
+                        @owner
+                    </li>
+                }
+            </ol>
+        </dd>
+
+    </dl>
+</div>
+<p class="btn-group">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-primary"})
+    @Html.ActionLink("Add Car", "AddCar", new {id = Model.Id}, new {@class = "btn btn-primary", role = "button"})
+    @Html.ActionLink("Remove Car", "RemoveCar", new {id = Model.Id}, new {@class = "btn btn-danger", role = "button"})
+</p>

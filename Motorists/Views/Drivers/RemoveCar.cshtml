@@ -1,0 +1,19 @@
+﻿@model Motorists.Models.Driver
+@{
+    ViewBag.Title = "RemoveCar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RemoveCar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="btn-group col-md-2">
+        <input type="submit" value="Remove" class="btn btn-danger"/>
+        @Html.ActionLink("Back", "Details", new {id = Model.Id}, new {@class = "btn btn-default", role = "button"})
+    </div>
+    <div class="col-md-10">
+        @Html.DropDownList("carId", (List<SelectListItem>)ViewData["cars"], new { @class = "form-control" })
+    </div>
+}

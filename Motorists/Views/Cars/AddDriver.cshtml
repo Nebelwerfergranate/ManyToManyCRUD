@@ -1,0 +1,30 @@
+﻿@using System.Web.UI.WebControls
+@model Motorists.Models.Car
+@{
+    ViewBag.Title = "AddDriver";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Driver</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.Label("vatin", "Enter driver's VATIN", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.TextBox("vatin", "", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-3 col-md-9">
+                <input type="submit" value="Add" class="btn btn-primary" />
+                @Html.ActionLink("To Drivers", "Index", "Drivers", new { area = "" }, new { @class = "btn btn-default", role = "button" })
+                @Html.ActionLink("Back", "Details", new { id = Model.Id }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}
